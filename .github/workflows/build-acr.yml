@@ -23,7 +23,7 @@ jobs:
         login-server: ${{ secrets.DOCKER_CONTAINER_REGISTRY }}
 
     - name: Build the Docker image
-      run: | 
+      run: |
         cd SiteContagem
         docker build . --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER
         docker tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:latest
